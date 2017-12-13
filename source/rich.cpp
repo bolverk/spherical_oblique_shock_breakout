@@ -116,12 +116,13 @@ namespace {
       res.at(i).pressure = 1e-9;
       res.at(i).velocity = Vector2D(0,0);
       const Vector2D& r = tess.GetMeshPoint(static_cast<int>(i));
+      const double x = 1 - abs(r);
 
       if(abs(r)<1)
-	res.at(i).density = 1;
+	res.at(i).density = pow(x,1.5);
 
-      if(abs(r)<0.1)
-	res.at(i).pressure = 1e4;
+      if(abs(r-Vector2D(0,0))<0.01)
+	res.at(i).pressure = 1e6;
     }
     return res;
   }
