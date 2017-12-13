@@ -190,7 +190,7 @@ namespace {
 		   (RightRectangle(Vector2D(1e-3,-width_), Vector2D(width_, width_)),
 		    complete_grid(0.15,
 				  2*width_,
-				  0.0005))),
+				  0.005))),
       tess_(init_points_, outer_),
 #endif
       eos_(5./3.),
@@ -304,7 +304,7 @@ int main(void)
   SimData sim_data;
   hdsim& sim = sim_data.getSim();
 
-  const double tf = 1e-6;
+  const double tf = 2e-1;
   SafeTimeTermination term_cond(tf,1e6);
   MultipleDiagnostics diag
   (VectorInitialiser<DiagnosticFunction*>()
